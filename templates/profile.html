@@ -95,11 +95,11 @@
         if ("geolocation" in navigator) {
           watchId = navigator.geolocation.watchPosition(
             (data) => {
-              const userLocation = { lat: 39.5409889, lng: -121.778182 };
-              const geofenceCenter = {
+              const userLocation = {
                 lat: data.coords.latitude,
                 lng: data.coords.longitude,
               };
+              const geofenceCenter = { lat: data.coords.latitude, lng: data.coords.longitude };
               const radius = 0.015; // 15-meter radius
 
               // Calculate the distance between the user and the geofence center
