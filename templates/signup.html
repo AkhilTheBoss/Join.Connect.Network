@@ -37,56 +37,62 @@
       .form-control::placeholder {
         color: black; /* Add this line to make the placeholder text black */
       }
+      .rest {
+        margin: 50px auto;
+        /* text-align: center; */
+      }
     </style>
   </head>
   <body>
     <div class="container mt-5">
       <h1>Sign Up</h1>
-      <h2>Create new account</h2>
-      <p>
-        Already Registered?
-        <a href="{{ url_for('hello') }}">Log in here</a>
-      </p>
+      <div class="rest">
+        <h2>Create new account</h2>
+        <p>
+          Already Registered?
+          <a href="{{ url_for('hello') }}">Log in here</a>
+        </p>
 
-      <form>
-        <div class="form-group row">
-          <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
-            <input
-              type="email"
-              class="form-control"
-              id="Login_email"
-              placeholder="Email"
-            />
+        <form>
+          <div class="form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
+              <input
+                type="email"
+                class="form-control"
+                id="Login_email"
+                placeholder="Email"
+              />
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
-            <input
-              type="password"
-              class="form-control"
-              id="Login_password"
-              placeholder="Password"
-            />
+          <div class="form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
+              <input
+                type="password"
+                class="form-control"
+                id="Login_password"
+                placeholder="Password"
+              />
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
-            <input
-              type="password"
-              class="form-control"
-              id="Login_cpassword"
-              placeholder="Confirm Password"
-            />
+          <div class="form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
+              <input
+                type="password"
+                class="form-control"
+                id="Login_cpassword"
+                placeholder="Confirm Password"
+              />
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
-            <button type="submit" class="btn btn-primary btn-block">
-              Let's go!
-            </button>
+          <div class="form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
+              <button type="submit" class="btn btn-primary btn-block">
+                Let's go!
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
 
     <!-- Include Bootstrap JS (optional) -->
