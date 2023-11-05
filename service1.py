@@ -45,7 +45,17 @@ def get_geolocation():
         return jsonify(geolocation_data)
     else:
         return jsonify(error="Failed to get geolocation data from service2")
+    
+@app.route('/submit_form', methods=['POST'])
+def submit_form():
+    data = request.get_json()  # Retrieve the data as JSON
+    print("Data received from front end:", data)
+    
+    # Process the data or perform any required actions
+    
+    # Return a response to the front end
+    response_data = {'message': 'Form data received successfully'}
+    return jsonify(response_data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8001, debug=True)
-
