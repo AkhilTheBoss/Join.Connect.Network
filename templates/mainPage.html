@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mainPage</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@1,200&display=swap");
+      .container {
+        text-align: center;
+      }
+      .form-group {
+        margin: 10px 0;
+      }
+      .btn-primary {
+        background-color: black;
+        color: white;
+      }
+      body {
+        background-image: url("{{ url_for('static', filename='AAR.png') }}");
+        background-size: cover;
+        color: white;
+      }
+      .form-control {
+        background-color: grey;
+        color: black;
+      }
+      .form-control::placeholder {
+        color: black; /* Add this line to make the placeholder text black */
+      }
+      h1 {
+        font-family: "Advent Pro", sans-serif; /* Apply the Google Font to h1 */
+      }
+      .new {
+        margin: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Join. Connect. Network!</h1>
+
+      <form>
+        <div class="new">
+          <div class="d-flex justify-content-center mb-6 form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+              <input
+                type="name"
+                class="form-control"
+                id="FillUp_name"
+                placeholder="Name"
+              />
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mb-6 form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+              <select class="form-control" id="FillUp_gender">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mb-6 form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+              <input
+                type="age"
+                class="form-control"
+                id="FillUp_age"
+                placeholder="Age"
+              />
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mb-6 form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+              <select class="form-control" id="FillUp_major">
+                <option value="">Select Major</option>
+                <option value="Engineering">College of Engineering</option>
+                <option value="Biological Sciences">
+                  College of Biological Sciences
+                </option>
+                <option value="Letters and Science">
+                  College of Letters and Science
+                </option>
+                <option value="Agricultural Sciences">
+                  College of Agricultural Sciences
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mb-6 form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+              <select class="form-control" id="FillUp_hobbies">
+                <option value="">Select Hobbies</option>
+                <option value="Video games">Video games</option>
+                <option value="Cinema">Cinema</option>
+                <option value="Sports">Sports</option>
+                <option value="Reading books">Reading books</option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mb-24 form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+              <button
+                type="button"
+                class="btn btn-primary btn-block"
+                onclick="redirectToMain()"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      function redirectToMain() {
+        window.location.href = "{{ url_for('hello') }}";
+      }
+    </script>
+  </body>
+</html>
