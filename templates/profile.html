@@ -4,8 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="static/style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@1,200&display=swap");
+      body {
+        background-image: url("{{ url_for('static', filename='AAR.png') }}");
+        background-size: cover;
+        color: white;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        min-height: 100vh;
+        margin: 10px;
+      }
+      .title {
+        font-family: "Advent Pro", sans-serif;
+        font-size: 3rem;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hi</h1>
+    <div class="content-container">
+      <h1 class="title">Join. Connect. Network!</h1>
+      <div class="coin">
+        <div class="side front">
+          <div>Name: What Name</div>
+          <!-- <br />
+          <div>dcjn</div> -->
+          <!-- <br />
+          <p>sckn</p> -->
+        </div>
+        <div class="side back"></div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="static/profile.js"></script>
   </body>
 </html>
