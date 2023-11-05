@@ -30,9 +30,46 @@
   <body>
     <div class="content-container">
       <h1 class="title">Join. Connect. Network!</h1>
+      <!-- <button id="start">Start</button> -->
+      <!-- <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto"> -->
+      <div style="margin-top: 10px">
+        <button
+          type="button"
+          id="start"
+          style="
+            font-size: 12px;
+            padding: 5px 0;
+            background-color: grey;
+            color: white;
+            border: 1px solid black;
+            width: 100px;
+          "
+        >
+          Start
+        </button>
+      </div>
+      <!-- </div> -->
+      <div style="margin-top: 10px">
+        <button
+          type="button"
+          id="stop"
+          style="
+            font-size: 12px;
+            padding: 5px 0;
+            background-color: grey;
+            color: white;
+            border: 1px solid black;
+            width: 100px;
+          "
+        >
+          Stop
+        </button>
+      </div>
       <div class="coin">
         <div class="side front">
-          <div>Name: What Name</div>
+          <div id="status">Press Start to match with users nearby</div>
+          <!-- Include the Socket.io library from a CDN -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
           <!-- <br />
           <div>dcjn</div> -->
           <!-- <br />
@@ -46,5 +83,77 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="static/profile.js"></script>
+    <script>
+      const start = document.querySelector("#start");
+      const stop = document.querySelector("#stop");
+      const status = document.querySelector("#status");
+
+      let watchId; // Store the geolocation watch ID
+
+      start.addEventListener("click", () => {
+        status.textContent = "Real time location turned on";
+        if ("geolocation" in navigator) {
+          watchId = navigator.geolocation.watchPosition(
+            (data) => {
+              const userLocation = { lat: 39.5409889, lng: -121.778182 };
+              const geofenceCenter = {
+                lat: data.coords.latitude,
+                lng: data.coords.longitude,
+              };
+              const radius = 0.015; // 15-meter radius
+
+              // Calculate the distance between the user and the geofence center
+              const distance = calculateDistance(userLocation, geofenceCenter);
+              console.log(distance);
+
+              if (distance <= radius) {
+                status.textContent = "Match found";
+              } else {
+                status.textContent = "Match not found";
+              }
+            },
+            (error) => console.log(error)
+          );
+        } else {
+          status.textContent = "Geolocation is not supported by your browser.";
+        }
+      });
+
+      stop.addEventListener("click", () => {
+        if (watchId) {
+          navigator.geolocation.clearWatch(watchId);
+          status.textContent = "Real time location turned off";
+        }
+      });
+
+      // Function to calculate the Haversine distance between two coordinates
+      function calculateDistance(coord1, coord2) {
+        const earthRadius = 6371; // Earth's radius in kilometers (you can adjust this value if needed)
+
+        // Convert latitude and longitude from degrees to radians
+        const lat1Rad = toRadians(coord1.lat);
+        const lng1Rad = toRadians(coord1.lng);
+        const lat2Rad = toRadians(coord2.lat);
+        const lng2Rad = toRadians(coord2.lng);
+
+        // Calculate the differences in latitude and longitude
+        const latDiff = lat2Rad - lat1Rad;
+        const lngDiff = lng2Rad - lng1Rad;
+
+        // Use the Haversine formula to calculate the distance
+        const a =
+          Math.sin(latDiff / 2) ** 2 +
+          Math.cos(lat1Rad) * Math.cos(lat2Rad) * Math.sin(lngDiff / 2) ** 2;
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const distance = earthRadius * c;
+
+        return distance; // The distance is in kilometers
+      }
+
+      // Function to convert degrees to radians
+      function toRadians(degrees) {
+        return degrees * (Math.PI / 180);
+      }
+    </script>
   </body>
 </html>
