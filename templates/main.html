@@ -1,0 +1,97 @@
+<!-- <style>
+    body {
+        background-image: url("{{ url_for('static', filename='sss.png') }}");
+        background-size: cover;
+      }
+</style> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      .container {
+        text-align: center;
+      }
+      .form-group {
+        margin: 10px 0;
+      }
+      .btn-primary {
+        background-color: black;
+        color: white;
+      }
+      body {
+        background-image: url("{{ url_for('static', filename='AAR.png') }}");
+        background-size: cover;
+        color: white;
+      }
+      .form-control {
+        background-color: grey;
+        color: white;
+      }
+      .form-control::placeholder {
+        color: black; /* Add this line to make the placeholder text black */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Login</h1>
+      <p>
+        Don't have an account.
+        <a href="{{ url_for('signup') }}">Sign up here</a>
+      </p>
+
+      <form>
+        <div class="form-group row">
+          <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
+            <input
+              type="email"
+              class="form-control"
+              id="Signup_email"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
+            <input
+              type="password"
+              class="form-control"
+              id="Signup_password"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
+            <button
+              type="button"
+              class="btn btn-primary btn-block"
+              onclick="redirectToProfile()"
+            >
+              Let's go!
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      function redirectToProfile() {
+        // Redirect to the profile page after button click
+        window.location.href = "{{ url_for('profile') }}";
+      }
+    </script>
+  </body>
+</html>
