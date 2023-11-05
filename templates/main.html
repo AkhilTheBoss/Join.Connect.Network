@@ -38,49 +38,54 @@
       .form-control::placeholder {
         color: black; /* Add this line to make the placeholder text black */
       }
+      .custom-margin-top {
+        padding-top: 80px; /* Adjust the margin-top value as needed */
+      }
     </style>
   </head>
   <body>
     <div class="container mt-5">
-      <h1>Login</h1>
-      <p>
-        Don't have an account.
-        <a href="{{ url_for('signup') }}">Sign up here</a>
-      </p>
+      <div class="custom-margin-top">
+        <h1>Login</h1>
+        <p>
+          Don't have an account.
+          <a href="{{ url_for('signup') }}">Sign up here</a>
+        </p>
 
-      <form>
-        <div class="form-group row">
-          <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
-            <input
-              type="email"
-              class="form-control"
-              id="Signup_email"
-              placeholder="Email"
-            />
+        <form>
+          <div class="form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
+              <input
+                type="email"
+                class="form-control"
+                id="Signup_email"
+                placeholder="Email"
+              />
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
-            <input
-              type="password"
-              class="form-control"
-              id="Signup_password"
-              placeholder="Password"
-            />
+          <div class="form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
+              <input
+                type="password"
+                class="form-control"
+                id="Signup_password"
+                placeholder="Password"
+              />
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
-            <button
-              type="button"
-              class="btn btn-primary btn-block"
-              onclick="redirectToProfile()"
-            >
-              Let's go!
-            </button>
+          <div class="form-group row">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto">
+              <button
+                type="button"
+                class="btn btn-primary btn-block"
+                onclick="redirectToProfile()"
+              >
+                Let's go!
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
 
     <!-- Include Bootstrap JS (optional) -->
